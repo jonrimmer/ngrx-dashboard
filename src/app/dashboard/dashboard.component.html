@@ -1,0 +1,29 @@
+<div class="meta">
+  Latest: {{ latest$ | async | date:'HH:mm:ss.SS' }}
+</div>
+
+<div
+  class="chart"
+  @blockInitial
+>
+  <div
+    class="error"
+    *ngIf="error$ | async"
+  >
+    <div>
+      There is a problem fetching the data
+      <button (click)="manualRetry()">Retry</button>
+    </div>
+  </div>
+  <div 
+    class="value"
+    @measurementTrigger
+    *ngFor="let measurement of (measurements$ | async); let i = index; trackBy: getTimestamp"
+    [style.left.%]="i * 5"
+  >
+    <div
+      *ngIf="measurement"
+      class="bar"
+      [style.height.%]="measurement.value"></div>
+  </div>
+</div>

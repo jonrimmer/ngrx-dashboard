@@ -1,0 +1,47 @@
+:host {
+  width: 500px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.meta {
+  margin-bottom: 6px;
+}
+
+.chart {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  border: 3px solid #EEE;
+}
+
+.value {
+  position: absolute;
+  width: 5%;
+  bottom: 0;
+  top: 0;
+  transition: left 0.2s linear;
+  left: 100%;
+}
+
+.bar {
+  position: absolute;
+  bottom: 0;
+  left: 2px;
+  right: 2px;
+  background-color: rgb(21, 118, 171);
+}
+
+.error {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(240,240,240, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
